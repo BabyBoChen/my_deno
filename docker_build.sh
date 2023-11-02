@@ -1,1 +1,1 @@
-sudo docker build -t bbljboy/my_deno:0.0.1 .
+sudo docker build -t bbljboy/my_deno:0.0.2 .

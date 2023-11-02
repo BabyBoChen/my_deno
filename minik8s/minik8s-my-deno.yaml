@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: my-deno
-          image: bbljboy/my_deno:0.0.1
+          image: bbljboy/my_deno:0.0.2
           securityContext:
             privileged: false
 ---
