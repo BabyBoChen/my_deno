@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-deno
+  namespace: default
+  labels:
+    k8s-app: my-deno
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: my-deno
+  template:
+    metadata:
+      name: my-deno
+      labels:
+        k8s-app: my-deno
+    spec:
+      containers:
+        - name: my-deno
+          image: bbljboy/my_deno:0.0.1
+          securityContext:
+            privileged: false
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-deno
+  labels:
+    k8s-app: my-deno
+spec:
+  selector:
+    k8s-app: my-deno
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+      nodePort: 30080
