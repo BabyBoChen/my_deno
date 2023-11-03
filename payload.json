@@ -1,0 +1,21 @@
+{
+    "apiVersion": "argoproj.io/v1alpha1",
+    "kind": "Application",
+    "metadata": {
+        "name": "my-deno"
+    },
+    "spec": {
+        "destination": {
+            "name": "",
+            "namespace": "default",
+            "server": "https://kubernetes.default.svc"
+        },
+        "source": {
+            "path": "minik8s",
+            "repoURL": "https://github.com/BabyBoChen/my_deno.git",
+            "targetRevision": "HEAD"
+        },
+        "sources": [],
+        "project": "default"
+    }
+}
